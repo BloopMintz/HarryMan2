@@ -1,0 +1,134 @@
+#song 2
+
+ot = "C:/Users/christopher_ramirez/Downloads/daydreaming-insintro.wav"
+
+
+vocal1 = "C:/Users/christopher_ramirez/Downloads/vocal1.wav"
+
+vocal2 = "C:/Users/christopher_ramirez/Downloads/vocal2.wav"
+
+vocal2s ="C:/Users/christopher_ramirez/Downloads/vocal2s.wav"
+
+vocal3 = "C:/Users/christopher_ramirez/Videos/Captures/vocal3.wav"
+
+vocal4 = "C:/Users/christopher_ramirez/Videos/Captures/vocal4.wav"
+
+vocal5 = "C:/Users/christopher_ramirez/Videos/Captures/vocal5.wav"
+
+vocal6 ="C:/Users/christopher_ramirez/Downloads/vocal6.wav"
+
+vocal7 = "C:/Users/christopher_ramirez/Downloads/vocal7.wav"
+
+define :introbeat1 do
+  2.times do
+    use_synth :rodeo
+    play :b3, amp: 0.5
+    play :g3, amp: 0.5
+    play :b2, amp: 0.5
+    sleep 0.8
+    
+    play :a3, amp: 0.5
+    play :e3, amp: 0.5
+    play :a2, amp: 0.5
+    sleep 1.2
+    
+    play :g3, amp: 0.5
+    play :d3, amp: 0.5
+    play :g2, amp: 0.5
+    sleep 0.8
+    
+    play :a3, amp: 0.5
+    play :e3, amp: 0.5
+    play :a2, amp: 0.5
+    sleep 1.1
+  end
+end
+
+define :introbeat2 do
+  4.times do
+    use_synth :pulse
+    play :b3, amp: 0.5
+    play :g3, amp: 0.5
+    play :b2, amp: 0.5
+    sleep 0.8
+    
+    play :a3, amp: 0.5
+    play :e3, amp: 0.5
+    play :a2, amp: 0.5
+    sleep 1.2
+    
+    play :g3, amp: 0.5
+    play :d3, amp: 0.5
+    play :g2, amp: 0.5
+    sleep 0.8
+    
+    play :a3, amp: 0.5
+    play :e3, amp: 0.5
+    play :a2, amp: 0.5
+    sleep 1.1
+  end
+end
+
+define :introbeat3 do
+  use_synth :pulse
+  play :b3, amp: 0.5
+  play :g3, amp: 0.5
+  play :b2, amp: 0.5
+  sleep 0.8
+  
+  play :a3, amp: 0.5
+  play :e3, amp: 0.5
+  play :a2, amp: 0.5
+  sleep 1.2
+  
+  play :g3, amp: 0.5, sustain: 2
+  play :d3, amp: 0.5, sustain: 2
+  play :g2, amp: 0.25, sustain: 2
+  sleep 0.8
+end
+
+sample :ambi_glass_hum
+sleep 5
+sample ot
+sleep 18
+
+
+live_loop :intro do
+  introbeat1
+  sleep 0
+  introbeat2
+  sleep 0
+  introbeat3
+  sleep 8
+  stop
+end
+sleep 6.5
+
+live_loop :vocals do
+  sample vocal2s, amp: 2
+  sleep 5
+  sample vocal1, amp: 2
+  sleep 4
+  sample vocal2, amp: 2
+  sleep 4
+  sample vocal3, amp: 2
+  sleep 4
+  sample vocal4, amp: 2
+  sleep 2
+  sample vocal5, amp: 2
+  sleep 2
+  sample vocal6, amp: 2
+  sleep 4
+  sample vocal7, amp: 2
+  sleep 4
+  stop
+end
+
+
+live_loop :intro2 do
+  introbeat1
+  sleep 0
+  introbeat2
+  sleep 0
+stop  
+end
