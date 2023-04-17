@@ -1,7 +1,8 @@
 #song 2
 
-ot = "C:/Users/christopher_ramirez/Downloads/daydreaming-insintro.wav"
+#SOUNDS
 
+ot = "C:/Users/christopher_ramirez/Downloads/daydreaming-insintro.wav"
 
 vocal1 = "C:/Users/christopher_ramirez/Downloads/vocal1.wav"
 
@@ -19,22 +20,30 @@ vocal6 ="C:/Users/christopher_ramirez/Downloads/vocal6.wav"
 
 vocal7 = "C:/Users/christopher_ramirez/Downloads/vocal7.wav"
 
+#VARIABLES
+x=0
+
+
+pella = [vocal2s, vocal1, vocal2, vocal3, vocal4, vocal5, vocal6, vocal7]
+sleeps = [5,4,4,4,2,2,4,4]
+
+
 define :introbeat1 do
   2.times do
     use_synth :rodeo
-    play :b3, amp: 0.5
-    play :g3, amp: 0.5
-    play :b2, amp: 0.5
+    play :b3, amp: 0.25
+    play :g3, amp: 0.25
+    play :b2, amp: 0.25
     sleep 0.8
     
-    play :a3, amp: 0.5
-    play :e3, amp: 0.5
-    play :a2, amp: 0.5
+    play :a3, amp: 0.25
+    play :e3, amp: 0.25
+    play :a2, amp: 0.25
     sleep 1.2
     
-    play :g3, amp: 0.5
-    play :d3, amp: 0.5
-    play :g2, amp: 0.5
+    play :g3, amp: 0.45
+    play :d3, amp: 0.45
+    play :g2, amp: 0.45
     sleep 0.8
     
     play :a3, amp: 0.5
@@ -43,6 +52,7 @@ define :introbeat1 do
     sleep 1.1
   end
 end
+
 
 define :introbeat2 do
   4.times do
@@ -87,6 +97,7 @@ define :introbeat3 do
   sleep 0.8
 end
 
+
 sample :ambi_glass_hum
 sleep 5
 sample ot
@@ -104,31 +115,18 @@ live_loop :intro do
 end
 sleep 6.5
 
-live_loop :vocals do
-  sample vocal2s, amp: 2
-  sleep 5
-  sample vocal1, amp: 2
-  sleep 4
-  sample vocal2, amp: 2
-  sleep 4
-  sample vocal3, amp: 2
-  sleep 4
-  sample vocal4, amp: 2
-  sleep 2
-  sample vocal5, amp: 2
-  sleep 2
-  sample vocal6, amp: 2
-  sleep 4
-  sample vocal7, amp: 2
-  sleep 4
-  stop
+live_loop :siiing do
+  sample pella[x]
+  sleep sleeps[x]
+  x=x+1
 end
+x=0
 
-
+sleep 30
 live_loop :intro2 do
   introbeat1
   sleep 0
   introbeat2
   sleep 0
-stop  
+  stop
 end
