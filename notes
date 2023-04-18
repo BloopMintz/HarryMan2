@@ -2,23 +2,35 @@
 
 #SOUNDS
 
-ot = "C:/Users/christopher_ramirez/Downloads/daydreaming-insintro.wav"
 
-vocal1 = "C:/Users/christopher_ramirez/Downloads/vocal1.wav"
 
-vocal2 = "C:/Users/christopher_ramirez/Downloads/vocal2.wav"
+ot = "/Users/christopherramirez/Downloads/daydreaming-insintro.wav"
 
-vocal2s ="C:/Users/christopher_ramirez/Downloads/vocal2s.wav"
 
-vocal3 = "C:/Users/christopher_ramirez/Videos/Captures/vocal3.wav"
+vocal1 = "/Users/christopherramirez/Downloads/vocal1.wav"
 
-vocal4 = "C:/Users/christopher_ramirez/Videos/Captures/vocal4.wav"
+vocal2 ="/Users/christopherramirez/Downloads/vocal2.wav"
 
-vocal5 = "C:/Users/christopher_ramirez/Videos/Captures/vocal5.wav"
 
-vocal6 ="C:/Users/christopher_ramirez/Downloads/vocal6.wav"
+vocal2s ="/Users/christopherramirez/Downloads/vocal2s.wav"
 
-vocal7 = "C:/Users/christopher_ramirez/Downloads/vocal7.wav"
+
+vocal3 ="/Users/christopherramirez/Downloads/vocal3.wav"
+
+
+vocal4 ="/Users/christopherramirez/Downloads/vocal4.wav"
+
+
+vocal5 = "/Users/christopherramirez/Downloads/vocal5.wav"
+
+
+vocal6 ="/Users/christopherramirez/Downloads/vocal6.wav"
+
+
+vocal7 = "/Users/christopherramirez/Downloads/vocal7.wav"
+
+
+
 
 #VARIABLES
 x=0
@@ -29,7 +41,7 @@ sleeps = [5,4,4,4,2,2,4,4]
 
 
 define :introbeat1 do
-  2.times do
+  1.times do
     use_synth :rodeo
     play :b3, amp: 0.25
     play :g3, amp: 0.25
@@ -41,14 +53,36 @@ define :introbeat1 do
     play :a2, amp: 0.25
     sleep 1.2
     
-    play :g3, amp: 0.45
-    play :d3, amp: 0.45
-    play :g2, amp: 0.45
+    play :g3, amp: 0.35
+    play :d3, amp: 0.35
+    play :g2, amp: 0.35
     sleep 0.8
     
-    play :a3, amp: 0.5
-    play :e3, amp: 0.5
-    play :a2, amp: 0.5
+    play :a3, amp: 0.35
+    play :e3, amp: 0.35
+    play :a2, amp: 0.35
+    sleep 1.1
+  end
+  1.times do
+    use_synth :rodeo
+    play :b3, amp: 0.35
+    play :g3, amp: 0.35
+    play :b2, amp: 0.35
+    sleep 0.8
+    
+    play :a3, amp: 0.35
+    play :e3, amp: 0.35
+    play :a2, amp: 0.35
+    sleep 1.2
+    
+    play :g3, amp: 0.35
+    play :d3, amp: 0.35
+    play :g2, amp: 0.35
+    sleep 0.8
+    
+    play :a3, amp: 0.35
+    play :e3, amp: 0.35
+    play :a2, amp: 0.35
     sleep 1.1
   end
 end
@@ -97,11 +131,84 @@ define :introbeat3 do
   sleep 0.8
 end
 
+define :introbeat4 do
+  1.times do
+    use_synth :rodeo
+    play :b3, amp: 0.25
+    play :g3, amp: 0.25
+    play :b2, amp: 0.25
+    sleep 0.8
+    
+    play :a3, amp: 0.25
+    play :e3, amp: 0.25
+    play :a2, amp: 0.25
+    sleep 1.2
+    
+    play :g3, amp: 0.35
+    play :d3, amp: 0.35
+    play :g2, amp: 0.35
+    sleep 0.5
+    
+    play :a3, amp: 0.35
+    play :e3, amp: 0.35
+    play :a2, amp: 0.35
+    sleep 1.1
+  end
+  1.times do
+    use_synth :rodeo
+    play :b3, amp: 0.35
+    play :g3, amp: 0.35
+    play :b2, amp: 0.35
+    sleep 0.8
+    
+    play :a3, amp: 0.35
+    play :e3, amp: 0.35
+    play :a2, amp: 0.35
+    sleep 1.2
+    
+    play :g3, amp: 0.35
+    play :d3, amp: 0.35
+    play :g2, amp: 0.35
+    sleep 0.8
+    
+    play :a3, amp: 0.35
+    play :e3, amp: 0.35
+    play :a2, amp: 0.35
+    sleep 1.1
+  end
+end
+
+define :introbeat5 do
+  4.times do
+    use_synth :pulse
+    play :b3, amp: 0.5
+    play :g3, amp: 0.5
+    play :b2, amp: 0.5
+    sleep 0.8
+    
+    play :a3, amp: 0.5
+    play :e3, amp: 0.5
+    play :a2, amp: 0.5
+    sleep 1.2
+    
+    play :g3, amp: 0.5
+    play :d3, amp: 0.5
+    play :g2, amp: 0.5
+    sleep 0.8
+    
+    play :a3, amp: 0.5
+    play :e3, amp: 0.5
+    play :a2, amp: 0.5
+    sleep 1.1
+  end
+end
+
 
 sample :ambi_glass_hum
 sleep 5
 sample ot
 sleep 18
+
 
 
 live_loop :intro do
@@ -122,11 +229,26 @@ live_loop :siiing do
 end
 x=0
 
-sleep 30
+sleep 21
+
 live_loop :intro2 do
-  introbeat1
+  introbeat4
   sleep 0
-  introbeat2
+  introbeat5
   sleep 0
   stop
+end
+
+live_loop :blah do
+  sample :elec_mid_snare
+  sleep 1
+end
+
+sleep 14
+
+live_loop :blahmore do
+  sample :elec_soft_kick
+  sleep 0.5
+  sample :drum_heavy_kick
+  sleep 0.75
 end
