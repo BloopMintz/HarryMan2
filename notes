@@ -6,7 +6,6 @@ outro = "/Users/christopherramirez/Downloads/dreamingpiano.wav"
 
 windup = "/Users/christopherramirez/Downloads/windup.wav"
 
-
 ot = "/Users/christopherramirez/Downloads/daydreaming-insintro.wav"
 
 vocal1 = "/Users/christopherramirez/Downloads/vocal1.wav"
@@ -67,8 +66,8 @@ x=0
 s=0.20
 v=
   
-pella = [vocal2s, vocal1, vocal2, vocal3, vocal4, vocal5, vocal6, vocal7, vocal8, vocal9, vocal10, vocal11, vocal12, vocal13, vocal14, vocal15, vocal16, vocal17, vocal18, vocal19, vocal21, vocal22, vocal23, vocal24]
-snore = [5,4,4,4,2,2,4,4,4,6,8,13,4,6,5,4,10,10,4,6,8,25,]
+pella = [vocal2s, vocal1, vocal2, vocal3, vocal4, vocal5, vocal6, vocal7, vocal8, vocal9, vocal10, vocal11, vocal12, vocal13, vocal14, vocal15, vocal17, vocal18, vocal19, vocal21, vocal22, vocal23, vocal24]
+snore = [5,4,4,4,2,2,4,4,4,6,8,13,4,6,5,4,10,14,4,6,8,25]
 #DEFINES               this is 8^    12^
 
 define :introbeat1 do
@@ -236,6 +235,37 @@ define :introbeat5 do
   end
 end
 
+define :notea2 do |a,b|
+  play a
+  sleep b
+end
+notea2 :a2, 0.5
+
+define :notea3 do |c,d|
+  play c
+  sleep d
+end
+notea3 :a3, 0.5
+
+define :notea1 do |e,f|
+  play e
+  sleep f
+end
+notea1 :a1, 1
+
+define :noteb1 do |g,h|
+  play g
+  sleep h
+end
+noteb1 :b1, 1
+
+define :noteb1s do |i,j|
+  play i
+  sleep j
+end
+noteb1s :b1, 0.5
+
+
 
 sample windup
 sleep 4
@@ -275,6 +305,40 @@ end
 sleep 0.5
 
 use_bpm 114
+use_synth :pretty_bell
+live_loop :idk do
+  define :notea2 do |a,b|
+    play a
+    sleep b
+  end
+  notea2 :a2, 0.5
+  
+  define :notea3 do |c,d|
+    play c
+    sleep d
+  end
+  notea3 :a3, 0.5
+  
+  define :notea1 do |e,f|
+    play e
+    sleep f
+  end
+  notea1 :a1, 1
+  
+  define :noteb1 do |g,h|
+    play g
+    sleep h
+  end
+  noteb1 :b1, 1
+  
+  define :noteb1s do |i,j|
+    play i
+    sleep j
+  end
+  noteb1s :b1, 0.5
+end
+
+
 live_loop :guitar do
   32.times do
     use_synth :pretty_bell
@@ -333,4 +397,5 @@ live_loop :intro3 do
   stop
 end
 sleep 69
+
 sample outro
