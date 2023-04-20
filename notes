@@ -1,7 +1,11 @@
-#song 2
+#song 2 l:3
 
 #SOUNDS
-use_bpm 114
+
+outro = "/Users/christopherramirez/Downloads/dreamingpiano.wav"
+
+windup = "/Users/christopherramirez/Downloads/windup.wav"
+
 
 ot = "/Users/christopherramirez/Downloads/daydreaming-insintro.wav"
 
@@ -31,59 +35,63 @@ vocal11 = "/Users/christopherramirez/Downloads/vocal11.wav"
 
 vocal12 = "/Users/christopherramirez/Downloads/vocal12.wav"
 
-
 vocal13 ="/Users/christopherramirez/Downloads/vocal13.wav"
 
-
 vocal14 = "/Users/christopherramirez/Downloads/vocal14.wav"
-
 
 vocal15 = "/Users/christopherramirez/Downloads/vocal15.wav"
 
 vocal16 ="/Users/christopherramirez/Downloads/vocal16.wav"
 
-
 vocal17 ="/Users/christopherramirez/Downloads/vocal17.wav"
-
 
 vocal18 ="/Users/christopherramirez/Downloads/vocal18.wav"
 
-
 vocal19 ="/Users/christopherramirez/Downloads/vocal19.wav"
 
+vocal21 ="/Users/christopherramirez/Downloads/vocal21.wav"
+
+
+vocal22 ="/Users/christopherramirez/Downloads/vocal22.wav"
+
+
+vocal23 ="/Users/christopherramirez/Downloads/vocal23.wav"
+
+
+vocal24 = "/Users/christopherramirez/Downloads/vocal24.wav"
 
 
 
 #VARIABLES
 x=0
-s=0.35
+s=0.20
 v=
   
-pella = [vocal2s, vocal1, vocal2, vocal3, vocal4, vocal5, vocal6, vocal7, vocal8, vocal9, vocal10, vocal11, vocal12, vocal13, vocal14]
-snore = [5,4,4,4,2,2,4,4,4,6,8,14,5,6,6,]
-#               this is 8^    12^
+pella = [vocal2s, vocal1, vocal2, vocal3, vocal4, vocal5, vocal6, vocal7, vocal8, vocal9, vocal10, vocal11, vocal12, vocal13, vocal14, vocal15, vocal16, vocal17, vocal18, vocal19, vocal21, vocal22, vocal23, vocal24]
+snore = [5,4,4,4,2,2,4,4,4,6,8,13,4,6,5,4,10,10,4,6,8,25,]
+#DEFINES               this is 8^    12^
 
 define :introbeat1 do
   1.times do
-    use_synth :rodeo
-    play :b3, amp: 0.25
-    play :g3, amp: 0.25
-    play :b2, amp: 0.25
+    use_synth :sine
+    play :b3, amp: 0.5
+    play :g3, amp: 0.5
+    play :b2, amp: 0.5
     sleep 0.8
     
-    play :a3, amp: 0.25
-    play :e3, amp: 0.25
-    play :a2, amp: 0.25
+    play :a3, amp: 0.5
+    play :e3, amp: 0.5
+    play :a2, amp: 0.5
     sleep 1.2
     
-    play :g3, amp: 0.35
-    play :d3, amp: 0.35
-    play :g2, amp: 0.35
+    play :g3, amp: 0.5
+    play :d3, amp: 0.5
+    play :g2, amp: 0.5
     sleep 0.8
     
-    play :a3, amp: 0.35
-    play :e3, amp: 0.35
-    play :a2, amp: 0.35
+    play :a3, amp: 0.5
+    play :e3, amp: 0.5
+    play :a2, amp: 0.5
     sleep 1.1
   end
   1.times do
@@ -114,24 +122,24 @@ end
 define :introbeat2 do
   4.times do
     use_synth :pulse
-    play :b3, amp: 0.5
-    play :g3, amp: 0.5
-    play :b2, amp: 0.5
+    play :b3, amp: 0.35
+    play :g3, amp: 0.35
+    play :b2, amp: 0.35
     sleep 0.8
     
-    play :a3, amp: 0.5
-    play :e3, amp: 0.5
-    play :a2, amp: 0.5
+    play :a3, amp: 0.35
+    play :e3, amp: 0.35
+    play :a2, amp: 0.35
     sleep 1.2
     
-    play :g3, amp: 0.5
-    play :d3, amp: 0.5
-    play :g2, amp: 0.5
+    play :g3, amp: 0.35
+    play :d3, amp: 0.35
+    play :g2, amp: 0.35
     sleep 0.8
     
-    play :a3, amp: 0.5
-    play :e3, amp: 0.5
-    play :a2, amp: 0.5
+    play :a3, amp: 0.35
+    play :e3, amp: 0.35
+    play :a2, amp: 0.35
     sleep 1.1
   end
 end
@@ -149,14 +157,14 @@ define :introbeat3 do
   sleep 1.2
   
   play :g3, amp: 0.5, sustain: 2
-  play :d3, amp: 0.5, sustain: 2
-  play :g2, amp: 0.25, sustain: 2
+  play :d3, amp: 0.35, sustain: 2
+  play :g2, amp: 0.215, sustain: 2
   sleep 0.8
 end
 
 define :introbeat4 do
   1.times do
-    use_synth :piano
+    use_synth :dtri
     play :b3, amp: 0.25
     play :g3, amp: 0.25
     play :b2, amp: 0.25
@@ -204,8 +212,8 @@ end
 
 
 define :introbeat5 do
-  1.times do
-    use_synth :rodeo
+  2.times do
+    use_synth :dtri
     play :b3, amp: 0.35
     play :g3, amp: 0.35
     play :b2, amp: 0.35
@@ -229,11 +237,12 @@ define :introbeat5 do
 end
 
 
+sample windup
+sleep 4
 sample :ambi_glass_hum
-sleep 8
+sleep 4
 sample ot
-sleep 38
-
+sleep 19
 
 
 live_loop :intro do
@@ -247,7 +256,7 @@ live_loop :intro do
 end
 sleep 6.5
 
-live_loop :siiing do
+live_loop :lala do
   sample pella[x]
   sleep snore[x]
   x=x+1
@@ -264,22 +273,57 @@ live_loop :intro2 do
   stop
 end
 sleep 0.5
+
+use_bpm 114
+live_loop :guitar do
+  32.times do
+    use_synth :pretty_bell
+    play :a2
+    sleep 0.5
+    play :a3
+    sleep 0.5
+    play :a1
+    sleep 1
+    play :b1
+    sleep 1
+    play :b1
+    sleep 0.5
+  end
+end
+
 live_loop :blah do
-  sample :drum_snare_hard, amp: s
-  sleep 0.5
+  32.times do
+    sample :drum_snare_hard, amp: s
+    sleep 1
+  end
 end
 sleep 12
 live_loop :blah2 do
-  sample :drum_heavy_kick, amp: s
-  sleep 1
-end
-sleep 18
-live_loop :blah3 do
-  sample :drum_cymbal_pedal, amp: s
-  sleep 0.5
+  32.times do
+    sleep 0.5
+    sample :drum_cymbal_closed, amp: s
+    sleep 0.5
+  end
 end
 
-sleep 34
+sleep 50
+use_bpm 60
+live_loop :intro3 do
+  introbeat4
+  sleep 0
+  introbeat5
+  sleep 0
+  stop
+end
+sleep 12
+live_loop :intro3 do
+  introbeat4
+  sleep 0
+  introbeat5
+  sleep 0
+  stop
+end
+sleep 20
 
 live_loop :intro3 do
   introbeat4
@@ -288,3 +332,5 @@ live_loop :intro3 do
   sleep 0
   stop
 end
+sleep 69
+sample outro
