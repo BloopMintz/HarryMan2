@@ -338,23 +338,6 @@ live_loop :idk do
   noteb1s :b1, 0.5
 end
 
-
-live_loop :guitar do
-  32.times do
-    use_synth :pretty_bell
-    play :a2
-    sleep 0.5
-    play :a3
-    sleep 0.5
-    play :a1
-    sleep 1
-    play :b1
-    sleep 1
-    play :b1
-    sleep 0.5
-  end
-end
-
 live_loop :blah do
   32.times do
     sample :drum_snare_hard, amp: s
