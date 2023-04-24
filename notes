@@ -64,8 +64,8 @@ vocal24 = "/Users/christopherramirez/Downloads/vocal24.wav"
 #VARIABLES
 x=0
 s=0.20
-v=
-  
+a=9
+
 pella = [vocal2s, vocal1, vocal2, vocal3, vocal4, vocal5, vocal6, vocal7, vocal8, vocal9, vocal10, vocal11, vocal12, vocal13, vocal14, vocal15, vocal17, vocal18, vocal19, vocal21, vocal22, vocal23, vocal24]
 snore = [5,4,4,4,2,2,4,4,4,6,8,13,4,6,5,4,10,14,4,6,8,25]
 #DEFINES               this is 8^    12^
@@ -266,7 +266,7 @@ end
 noteb1s :b1, 0.5
 
 
-
+=begin
 sample windup
 sleep 4
 sample :ambi_glass_hum
@@ -283,6 +283,23 @@ live_loop :intro do
   introbeat3
   sleep 8
   stop
+end
+sleep 6.5
+=end
+
+live_loop :selection do
+  #this loop does something different with each iteration
+  if a < 10
+    introbeat1
+  elsif a == 11
+    introbeat3
+  else
+    introbeat2
+  end
+  
+  sleep 0
+  print("looping...")
+  a = a + 1
 end
 sleep 6.5
 
