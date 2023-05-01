@@ -64,11 +64,14 @@ vocal24 = "/Users/christopherramirez/Downloads/vocal24.wav"
 #VARIABLES
 x=0
 s=0.20
-a=9
+c = 9
+r=5
 
 pella = [vocal2s, vocal1, vocal2, vocal3, vocal4, vocal5, vocal6, vocal7, vocal8, vocal9, vocal10, vocal11, vocal12, vocal13, vocal14, vocal15, vocal17, vocal18, vocal19, vocal21, vocal22, vocal23, vocal24]
 snore = [5,4,4,4,2,2,4,4,4,6,8,13,4,6,5,4,10,14,4,6,8,25]
 #DEFINES               this is 8^    12^
+
+
 
 define :introbeat1 do
   1.times do
@@ -234,38 +237,6 @@ define :introbeat5 do
     sleep 1.1
   end
 end
-
-define :notea2 do |a,b|
-  play a
-  sleep b
-end
-notea2 :a2, 0.5
-
-define :notea3 do |c,d|
-  play c
-  sleep d
-end
-notea3 :a3, 0.5
-
-define :notea1 do |e,f|
-  play e
-  sleep f
-end
-notea1 :a1, 1
-
-define :noteb1 do |g,h|
-  play g
-  sleep h
-end
-noteb1 :b1, 1
-
-define :noteb1s do |i,j|
-  play i
-  sleep j
-end
-noteb1s :b1, 0.5
-
-
 =begin
 sample windup
 sleep 4
@@ -274,34 +245,33 @@ sleep 4
 sample ot
 sleep 19
 
-
-live_loop :intro do
-  introbeat1
-  sleep 0
-  introbeat2
-  sleep 0
-  introbeat3
-  sleep 8
-  stop
-end
-sleep 6.5
 =end
 
-live_loop :selection do
-  #this loop does something different with each iteration
-  if a < 10
+
+c=9
+
+define :picky do |who|
+  sample who
+  if c < 10
     introbeat1
-  elsif a == 11
+  elsif c == 11
     introbeat3
+    stop
   else
-    introbeat2
+    introbeat2n
   end
   
   sleep 0
-  print("looping...")
-  a = a + 1
+  print("newloop!") #this msg indicates when a new loop plays
+  c = c + 1
 end
+
+live_loop :daydream do
+  picky :introbeats
+end
+
 sleep 6.5
+
 
 live_loop :lala do
   sample pella[x]
@@ -322,37 +292,30 @@ end
 sleep 0.5
 
 use_bpm 114
-use_synth :pretty_bell
-live_loop :idk do
-  define :notea2 do |a,b|
-    play a
-    sleep b
+
+define :guitar do |harry, styles|
+  play harry
+  sleep styles
+end
+
+define :guitar2 do
+  live_loop :guitar3 do
+    use_synth :pretty_bell
+    guitar :a2, 0.5
+    guitar :a3, 0.5
+    guitar :a1, 1
+    guitar :b1, 1
+    guitar :b1, 0.5
   end
-  notea2 :a2, 0.5
-  
-  define :notea3 do |c,d|
-    play c
-    sleep d
+end
+
+
+
+if r==5
+  live_loop :guitar5 do
+    guitar2
+    sleep 5
   end
-  notea3 :a3, 0.5
-  
-  define :notea1 do |e,f|
-    play e
-    sleep f
-  end
-  notea1 :a1, 1
-  
-  define :noteb1 do |g,h|
-    play g
-    sleep h
-  end
-  noteb1 :b1, 1
-  
-  define :noteb1s do |i,j|
-    play i
-    sleep j
-  end
-  noteb1s :b1, 0.5
 end
 
 live_loop :blah do
@@ -398,4 +361,9 @@ live_loop :intro3 do
 end
 sleep 69
 
+
+
+
 sample outro
+
+
